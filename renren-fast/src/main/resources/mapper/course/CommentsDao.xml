@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.course.dao.CommentsDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.course.entity.CommentsEntity" id="commentsMap">
+        <result property="id" column="id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="courseType" column="course_type"/>
+        <result property="commentId" column="comment_id"/>
+        <result property="replyId" column="reply_id"/>
+        <result property="commentName" column="comment_name"/>
+        <result property="replyName" column="reply_name"/>
+        <result property="content" column="content"/>
+        <result property="time" column="time"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="isPublic" column="is_public"/>
+        <result property="rootComment" column="root_comment"/>
+    </resultMap>
+
+
+</mapper>

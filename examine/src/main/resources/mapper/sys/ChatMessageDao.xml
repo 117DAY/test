@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.sys.dao.ChatMessageDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.sys.entity.ChatMessageEntity" id="chatMessageMap">
+        <result property="id" column="id"/>
+        <result property="toUser" column="to_user"/>
+        <result property="fromUser" column="from_user"/>
+        <result property="content" column="content"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="sendTime" column="send_time"/>
+    </resultMap>
+
+
+</mapper>

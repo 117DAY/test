@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.mall.dao.MallProductDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.mall.entity.MallProductEntity" id="mallProductMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+        <result property="details" column="details"/>
+        <result property="pics" column="pics"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="isPublic" column="is_public"/>
+        <result property="count" column="count"/>
+    </resultMap>
+
+
+</mapper>

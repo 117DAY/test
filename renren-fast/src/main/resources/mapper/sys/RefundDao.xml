@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.sys.dao.RefundDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.sys.entity.RefundEntity" id="refundMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="serialNum" column="serial_num"/>
+        <result property="courseId" column="course_id"/>
+        <result property="payPrice" column="pay_price"/>
+        <result property="operator" column="operator"/>
+        <result property="status" column="status"/>
+        <result property="refundScreenshots" column="refund_screenshots"/>
+        <result property="remark" column="remark"/>
+        <result property="courseType" column="course_type"/>
+        <result property="username" column="username"/>
+        <result property="createTime" column="create_time"/>
+        <result property="finishTime" column="finish_time"/>
+        <result property="courseName" column="course_name"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="purchasingDate" column="purchasing_date"/>
+        <result property="orderId" column="order_id"/>
+        <result property="payMode" column="pay_mode"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,63 @@
+spring:
+  cloud:
+    alicloud:
+      access-key: LTAI5tA1UAsv9ptvtUyGKNNT
+      secret-key: SyktYg352WsRtcle7tdpmcURTZtxWQ
+      oss:
+        endpoint: oss-cn-shenzhen.aliyuncs.com
+  application:
+    name: gwy
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Aer9spie!
+    url: jdbc:mysql://47.115.61.191:3306/gwy?serverTimezone=UTC&characterEncoding=UTF-8
+  redis:
+    host: 47.115.61.191
+    port: 6379
+    password: aer9spie
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+ali:
+  pay:
+#    appId: 2021000118611661
+#    merchantPrivateKey: MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDZCq/XuLKjpCKeWir6HawIle3S2uQMnjK4Om6+ZEkfOwmlLOEJy2zbyK9u5JSEz9B2evJfugEM26VFh8+TLakiHAVwrfsbmTTatQ5fCdVaxHEB03tlEKbUQsouIoaviq+D03e6cdmKQ1MuZEyB5x4OPo8QNG5SRQPtJ1TYQhoFm5/1n9U7jMMPD5sU5oe13752z3VNO0QOmreY+LIrRwUyakz1VeYvZuZAlxIofBgnAuk1ZC5+TG1xmAkHvOJVKHNGJfattg9o6EJINikwt+l/XcpfrAtMDbzZZFdzCAt3SFTwVG+D2hXhwC2dTRe5TXZiR2tOFpLJhPxobgv2SPFbAgMBAAECggEAYF14WYVt+24i2MAcGNUXzvASme4KFvgeeOGozevk83LZA3d7q0eg26ytB8WBk75ZRmGsP4hscvMK3GZCaYx6beSXHcKBnW1WpEyDRvssuZJCwpbNUMAl8lR9RCKcPlCLQTKhFCz8c4EU66IovfyJwbVQ+9brrKdr6N3vs90VhKsUrymGMZgRsJNb4M4/HnFfas5zYekcoSulG+g0EUtP4ld5XcGg6h9iW5wJ/l6h62haBATLsrx4BHn/gk1KVpU3g3PxxKmQt2PcRNRjuhjsZduyOJPHLgiQsBc5k4YZjFO+NJyERlipSDjNesfOJe3pcpYx0gb8jK8I49Qw32wOIQKBgQD4RreXligNbOku2TkoTnrGqx2GwYkrpMUWvvHRDbSV0SFE/pvUSKZ/KGGt92ekw4Kch766YcrSDLzK+X7xwed0Gbiq+ATqNjsrY7IVHRFYyN78AmD/wKkMzhoKg6e4WQOdtkuPBs9C+iNcDG2TP1Un9OCXJvpbKEC4pDtNifqBowKBgQDfyzeD4NjUdJXnvGgHVM8bRF4arCxK9qIJBbAY9/43TjeYqPrwfUM9fVPe4g1SaflYclLzI4+JQxcRZSPf90oXyLeA8vLRZhXx/QVd53HKmIvui2lY2Bhi5hN5qCJTV92MIbYHTAetb4nn5gZp1sBpBxX0i2YPucx6E6aj/2p86QKBgQDm1bE60lRY7yr68OJwtE74yf4A3Y5wspjAZjYk3a5KIQ/iuysdO5L55Qy0l7OYgGK+sINHfUb69vbNbR13H4bX7lZBN6oyLMvksqPPd6A6QUD5ZCjVgUZr7nBN2EynXLO8/dHQoE8yAanAmpmCbz74kHgEcSwSdyF9ysyMcj4kKwKBgQDFqftduxIpDNR+uxVzLEBFSCyKCHqSt6ZEq8ZvN1NNTAOlDdOe6DSksfaLTUQQ/9MhgNCtOkKELULJtXhrUEMcIMeb2HoJ484MT7wWxd7m37fwuSgSNcPMToTzFkNDM79WD0x0w32gfXzj23LctrZ5za1hsmIyD5yAUq0D+wv2SQKBgQDi9jlqgRBGQ/6k8BmJPHwvjqkqwK4rSc/i3mx/jMMWZnirUGOEurJX/5TCZfRYbSYBzft5hJw7yxAp/YbE+PO/6mIixewzTpnm46AN++/PPFJvmBFXOvhgyQv9p4iiO+Qf7scbeyOw0ZV4KUNOsDb/98aZSGty2fIFKan9zUEFDg==
+#    alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoDB/2ZS8MR9zKz5MJ0FKNAIzt7NLrNa7i/PFwEjNv4ADtz7k1YNaQ6aoeNVj3LQcBi5JVXYsiUzjGxmP3r+WflwFCnMq9BaccXc20ceZ+YNbqh8u8CpTHmREza96cJgl0wpyRo/Ov1bHcGKodElMJcPL+qeKkH6UxfJIu/QsRqZvCMGe+AYyUu+4NPzen+KqoO+74+zeUUq/12POd9oO1vJLa26PkL8CFvxd1eABNr0A9x4BJP9DBRfLjdle8mqCh5ndfA7pTqw0n4Hg8n58wg1GUFOYS7vMbeRv7G8yRkQHE8gSkMvRA+r1Qn6nAZnjrBEG5RfFSwudW6G5WEyO4QIDAQAB
+    charset: utf-8
+    gatewayUrl: https://openapi.alipaydev.com/gateway.do
+    signType: RSA2
+#    notify-url: http://114.67.219.182:8080/audio/       #这两个参数的值和外网访问本应用的地址有关，等启动内网穿透后再添加
+    notify-url: http://47.115.61.191:5879/sys/pay/notify        #这两个参数的值和外网访问本应用的地址有关，等启动内网穿透后再添加
+    return-url: http://47.115.61.191:5879/sys/pay/return                   #这个由支付宝让浏览器去访问
+    alipay-public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkqPgcUCNSO6b7z0NbxS34UVtE/gT3VNBkylmjzPf6cvgPI4k8DjAEcq/0o8L2tBYasKOoyvV0y0Hgzoq63SYZaLTTbpooYAkorWF4YvkazfU5Oe55KxWdjCZE0Ij8vtQOzwPU3k08SX919zfiDwIsj1WWlQiIFt2MGYYBweSzJ7HSjsqdzB48DG+TLnuZPALnFMHWO5VbCaOUJXLOlzXeq6hyPJielFOjBGHg52hXqV96wRnT3AoK61e3hb/WNAX0ZRumGjttUrmE0sejc+CLZmdcn8jQas3sn/3GxqFcmTRz5mW4XmGr61wfcEGefFpz58u4f2xRkkMHceIZpQWyQIDAQAB
+    merchant-private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCAFy6eD/nJbp9siocaUBUjRHG/HGvukwM3Ltwbq8Nm/UP9qWswNn9e/31EniDXKGtsd73q25wQco6ng31nFhhrMPSKUA/2tHIvpVvsY8JJBQJVnnXpYuAqzPZ2i8cY/iKmdpP9s1H21pATxfAcpoQikWEkR3rZHD3vYFgOv3T0XwmKaDn2LDm9BR9aWFIxDxDbmUW5C5Tk4NHKQl3LICN95JI3fwmsNBGq9jQxMPQdHGlY5iFJrJk5Y/RJKZ1x/Ac1tNzss4g8BVGiNHNwfMWRhrWv+RDDg14LtJdiaYEVH+7VOwfKh4x0Ciccs1bvAXSoNI+5hCQBczvCuFq/LCaHAgMBAAECggEAJ5sDZww5h/cUhFMxAwnP/1+ibB01okcCr4VluYiamrWk2EISSo4PRChra1QZg22UCa3co0nUL6G8Sj91/vHuCvbQJhQrW3Tf+at/iNAvurQ5zI96lfdkqNdHPdBqd2fc/uubRs6zgUdGtVZ2r+Us5iNdjgIsEgWRgPqhP64jU4u6FqvqmHJ5hpYRlkWxagC+pN+vGPcQXZCMaf7VDh+ahoEeINlR7BMzbmrrzS8B/T5Ozg0HAZWRNq0hBfHjmLr1k422MPQKtxucyUZpkETof1BGU8g6+OxgAzGyLiJ1/AqXhPdV7ZI5eaP4fJwkOi9RutTF84j96zbgKupjgVePgQKBgQD1JISeioEVattczrtP5ngV8HpeLqorJf5tqr9N/BlVZdlFspXwpWSVZlSxOHEU8UaCIvFvKhlWcX5Lwh1eiYJxLJWhQbmvROoCsg28HNeiBOqUYODurYrlQuWRibL7N14Wpd6IrcEkx09z04qkfNMGuKwKP10UrjwRQxsIqILyKQKBgQCFw4BYKBepaU/17t6A7koPkOPU76v7oFnTdzI4k6Rbz/AnmvMrWjnqAVeA2RSTUW2nLlPWBO/nKVh5FroPReDLuG4K3rGJ/jPRdBpZp8BQ3+DifuqrUZuUlT5UYHypQhu/h873uR9BBMo81ESuho1H6GBjaf7RN6o8xM/5gfRJLwKBgFZ9BdUxpI074B0ESw3LkD6dU277I8qJYxSqE0ieUwnQHzH56fC3SZ90NRk5gpwS6/9p+Khxv/LBo/9ygw4hkcYAJuJ33904gR9mVnYx7toYxfKHo5RR4hk02u3YGS+Mv0NaTgMG2ofxUdTZo6aY65MJgJk09dAgEM0+UcFiQqDRAoGAdNKyw8t4JuAwEpUlRKtYiVG8eVs89A0uhk5i0SC4+eqYTq64U5OAYwv69TAiFSuXvdvrIk67i0MD3vVnWDFqS+HuUZX+rosRjIt++/BTOQ7eJFI995PVciYKAr0mAtkWzOb6bkYCstFRI2Er/tTKjRO5IvoOr4CTMHGfRcUmqccCgYEA0pElIVlw99hRQuywTjaqW3EQYmKLfkonnbDnLoqxi4wyi08iOhGodt1dMSUZa5Lnmfno2XRbFQaHV26Qp8vvcHwPWFkSYYT7JouiaW6k2xeIWVnNAAfviR0u38FPFC13rk9vBP1B31sYRq+DutXAi+b+1DEFZJ5B4N/VghB/Fq4=
+    app-id: 2021003126606084
+
+server:
+  port: 5879
+  tomcat:
+    accept-count: 300
+
+mybatis-plus:
+  #  classpath:/mapper/**/*.xml 扫描当前包下
+  #  classpath*:/mapper/**/*.xml 扫描所有包下
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+      # 给show_status字段加上注解
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      logic-delete-field: showStatus
+
+logging:
+  level:
+    com.mnnu.examine: debug
+# jwt的密钥
+tokenKey: aer9spie
+bucketName: gwy-oss
+videoBucket: gwy-video-oss
+ossObjectPrefix: https://gwy-video-oss.oss-cn-shenzhen.aliyuncs.com/
+roleArn: acs:ram::1007911125466741:role/gwy-video-protect

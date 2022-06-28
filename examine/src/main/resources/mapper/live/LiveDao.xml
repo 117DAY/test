@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.live.dao.LiveDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.live.entity.LiveEntity" id="liveMap">
+        <result property="id" column="id"/>
+        <result property="courseTitle" column="course_title"/>
+        <result property="orginalPrice" column="orginal_price"/>
+        <result property="currentPrice" column="current_price"/>
+        <result property="coverUrl" column="cover_url"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="details" column="details"/>
+        <result property="beginTime" column="begin_time"/>
+        <result property="finishTime" column="finish_time"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="videoUrl" column="video_url"/>
+        <result property="isPublic" column="is_public"/>
+        <result property="pointPercent" column="point_percent"/>
+        <result property="commisionPercent" column="commision_percent"/>
+    </resultMap>
+    <select id="queryRecommendLiveEntity" resultType="com.mnnu.examine.modules.live.entity.LiveEntity">
+        SELECT
+            *
+        FROM
+            `gwy_live` t1
+                LEFT JOIN (
+                SELECT
+                    `course_id`
+                FROM
+                    `gwy_course_order`
+                WHERE
+                    `course_type` = 1
+                  AND `show_status` = 1
+                  AND `status` = 1
+                GROUP BY
+                    `course_id`
+                ORDER BY
+                    COUNT( course_id ) DESC
+                LIMIT 0,
+                    #{num}
+            ) t2 ON t1.id = t2.course_id
+        WHERE
+            `show_status` = 1
+          AND `is_public` = 1
+
+    </select>
+    <select id="queryLiveWithTeacherById" resultType="com.mnnu.examine.modules.live.vo.LiveWithTeacherVO">
+        SELECT c.id,
+               c.course_title,
+               c.begin_time,
+               c.details,
+               c.teacher_id,
+               c.cover_url,
+               c.current_price,
+               c.orginal_price,
+               u.head_portrait,
+               u.username
+        FROM gwy_course c
+                 LEFT JOIN gwy_user u
+                           on u.id = #{teacherId}
+        where c.id = #{liveId}
+    </select>
+    <!--直播课列表查寻-->
+    <select id="queryLiveWithTeacher" resultType="com.mnnu.examine.modules.live.vo.LiveWithTeacherVO">
+        SELECT
+        c.id,c.course_title,c.orginal_price,c.details,c.begin_time,c.teacher_id
+        ,c.cover_url,c.current_price,c.show_status,c.create_time,c.is_public,u.head_portrait
+        ,u.username FROM gwy_live c LEFT JOIN gwy_user u on c.teacher_id=u.id
+        <if test='sort==0'>
+            where (c.course_title LIKE CONCAT('%',#{key},'%') or u.username LIKE CONCAT('%',#{key},'%'))
+            and c.show_status=1 and c.is_public=1
+
+        </if>
+        <if test='sort==1'>
+
+            where (c.course_title LIKE CONCAT('%',#{key},'%') or u.username LIKE CONCAT('%',#{key},'%'))
+            and c.show_status=1 and c.is_public=1
+            order by create_time desc
+        </if>
+        <if test='sort==2'>
+            where (c.course_title LIKE CONCAT('%',#{key},'%') or u.username LIKE CONCAT('%',#{key},'%'))
+            and c.show_status=1 and c.is_public=1
+            order by current_price asc
+        </if>
+        <if test='sort==3'>
+            LEFT JOIN(SELECT course_id,count(*) as total from gwy_course_order GROUP BY course_id) o
+            on c.id=o.course_id
+            where (c.course_title LIKE CONCAT('%',#{key},'%') or u.username LIKE CONCAT('%',#{key},'%'))
+            and c.show_status=1 and c.is_public=1
+            ORDER BY total DESC
+        </if>
+    </select>
+</mapper>

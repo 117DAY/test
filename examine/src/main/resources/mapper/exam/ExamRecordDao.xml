@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.exam.dao.ExamRecordDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.exam.entity.ExamRecordEntity" id="examRecordMap">
+        <result property="id" column="id"/>
+        <result property="examTitle" column="exam_title"/>
+        <result property="userId" column="user_id"/>
+        <result property="examId" column="exam_id"/>
+        <result property="score" column="score"/>
+        <result property="isCustom" column="is_custom"/>
+        <result property="commitTime" column="commit_time"/>
+        <result property="userAnswers" column="user_answers"/>
+        <result property="expendTime" column="expend_time"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="isChecked" column="is_checked"/>
+    </resultMap>
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.exam.vo.ExamRankVO" id="examRankMap">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="headPortrait" column="head_portrait"/>
+        <result property="score" column="score"/>
+        <result property="commitTime" column="commit_time"/>
+        <result property="expendTime" column="expend_time"/>
+    </resultMap>
+
+    <select id="getRanksByExam" resultMap="examRankMap">
+        SELECT u.username,
+               u.head_portrait,
+               r.id,
+               r.score,
+               r.expend_time,
+               r.commit_time
+        FROM gwy_exam_record AS r,
+             gwy_user AS u
+        WHERE r.user_id = u.id
+          AND exam_id = ${examId}
+          AND r.show_status = 1
+          AND commit_time != ''
+        ORDER BY score DESC
+            LIMIT 10;
+    </select>
+
+</mapper>

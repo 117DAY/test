@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.teacher.dao.TeacherInfoDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.teacher.entity.TeacherInfoEntity" id="teacherInfoMap">
+        <result property="id" column="id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="photos" column="photos"/>
+        <result property="graduateSchool" column="graduate_school"/>
+        <result property="eduBg" column="edu_bg"/>
+        <result property="commistion" column="commistion"/>
+        <result property="realName" column="real_name"/>
+    </resultMap>
+
+
+</mapper>

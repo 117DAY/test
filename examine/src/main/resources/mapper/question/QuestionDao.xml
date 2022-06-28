@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.question.dao.QuestionDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.question.entity.QuestionEntity" id="questionTextMap">
+        <id property="id" column="id"/>
+        <result property="questionTopic" column="question_topic"/>
+        <result property="choice" column="choice"/>
+        <result property="answer" column="answer"/>
+        <result property="typeId" column="type_id"/>
+        <result property="sort" column="sort"/>
+        <result property="isCustom" column="is_custom"/>
+        <result property="showStatus" column="show_status"/>
+        <result property="analysis" column="analysis"/>
+        <result property="score" column="score"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="examId" column="exam_id"/>
+        <collection property="textList" column="id" ofType="com.mnnu.examine.modules.question.entity.TextEntity">
+            <id property="id" column="tid"/>
+            <result property="textContent" column="text_content"/>
+            <result property="sort" column="tsort"/>
+        </collection>
+    </resultMap>
+
+    <select id="getQuestionWithTexts" resultMap="questionTextMap"
+            parameterType="java.lang.Integer">
+        SELECT q.*, t.id as tid, t.sort as tsort, t.text_content
+        FROM gwy_question q
+                 LEFT JOIN gwy_question_text_relation qt ON q.id = qt.question_id
+                 LEFT JOIN gwy_text t ON qt.question_text_id = t.id
+        where q.exam_id = #{id}
+    </select>
+
+    <select id="getQuestionsByTypesRandom" resultType="com.mnnu.examine.modules.question.entity.QuestionEntity">
+        SELECT *
+        FROM gwy_question
+        WHERE show_status = 1
+          AND type_id IN (${types})
+          AND exam_id IN (${examIds})
+          AND is_custom = 0
+        ORDER BY rand()
+            LIMIT #{limit}
+    </select>
+
+    <select id="getQuestionsByExamTypeRandom" resultType="com.mnnu.examine.modules.question.entity.QuestionEntity">
+        SELECT q.*
+        FROM gwy_question q,
+             gwy_exam e
+        WHERE q.exam_id = e.id
+          AND q.show_status = 1
+          AND q.is_custom = 0
+          AND e.type = #{type}
+        ORDER BY RAND() LIMIT #{limit};
+    </select>
+
+
+</mapper>

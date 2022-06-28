@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mnnu.examine.modules.course.dao.ViewRecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.mnnu.examine.modules.course.entity.ViewRecordEntity" id="viewRecordMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="courseType" column="course_type"/>
+        <result property="viewTime" column="view_time"/>
+        <result property="viewPercentage" column="view_percentage"/>
+        <result property="viewSecond" column="view_second"/>
+        <result property="courseCoverUrl" column="course_cover_url"/>
+        <result property="courseTitle" column="course_title"/>
+    </resultMap>
+
+
+</mapper>
